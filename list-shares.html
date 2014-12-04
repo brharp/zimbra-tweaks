@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../../tweaks/style.css"/>
+  </head>
+  <body>
+      <img src="//www.uoguelph.ca/common/zimbra/AppBanner.png" 
+           alt="Gryph Mail and Calendar"/>
+      <table>
+        <tr>
+          <th colspan="2">Shared Calendars</th>
+        </tr>
+        <tr>
+          <td>
+            <table class="nested data" width="800px">
+              <tr><th>Name</th><th>Owner</th><th>Actions</th></tr>
+              <loop form="shares">
+                <tr>
+                    <td align="left">${folder-path}</td>
+                    <td align="left">${owner-name}</td>
+                    <td align="left"><form action="/cgi-bin/zimlet/subscribe"><input type="hidden" name="name" value="${folder-path}"/><input type="hidden" name="owner-id" value="${owner-id}"/><input type="hidden" name="folder-id" value="${folder-id}"/><input type="hidden" name="flags" value="#"/><input type="hidden" name="view" value="${view}"/><input type="submit" value="Subscribe"/></form></td>
+                </tr>
+              </loop>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <a href="/cgi-bin/zimlet/prefs">&lt;&lt; More Options</a>
+  </body>
+</html>

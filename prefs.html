@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../../tweaks/style.css"/>
+  </head>
+  <body>
+    <img src="//www.uoguelph.ca/common/zimbra/AppBanner.png" 
+         alt="Gryph Mail and Calendar"/>
+    <form action="/cgi-bin/zimlet/prefs-save" method="GET">
+      <table>
+        <tr>
+          <th colspan="2">Calendar Options</th>
+        </tr>
+        <tr>
+          <td>
+            <table class="nested">
+              <tr>
+                <td align="right">
+                  <input name="agenda" type="checkbox" value="t">
+                    <when test="${agenda}">
+                      <set-attribute name="checked" value="checked"/>
+                    </when>
+                  </input>
+                </td>
+                <td align="left">
+                  <label for="agenda">Send daily agenda by email.</label>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <input name="automount" type="checkbox" value="t">
+                    <when test="${automount}">
+                      <set-attribute name="checked" value="checked"/>
+                    </when>
+                  </input>
+                </td>
+                <td align="left">
+                  <label for="automount">
+                    Show all calendars shared with me through a
+                    distribution list.</label>
+                </td>
+              </tr>
+              <tr>
+                <td/>
+                <td align="left">
+                  <label><a href="/cgi-bin/zimlet/list-shares">Browse
+                     Shared Calendars</a></label>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <input type="submit" name="save" value="Save"/>
+    </form>
+  </body>
+</html>

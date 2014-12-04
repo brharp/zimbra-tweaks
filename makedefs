@@ -1,0 +1,14 @@
+#!/bin/sh
+
+cat <<EOF
+PREFIX          = ${PREFIX="/usr/local"}
+PACKAGE_NAME    = ${PACKAGE_NAME=$(basename $(pwd))}
+SYS_CONF_DIR    = ${SYS_CONF_DIR=${PREFIX}"/etc"}
+PKG_DATA_DIR    = ${PKG_DATA_DIR=${PREFIX}"/share/"${PACKAGE_NAME}}
+HTTPD_DIR       = ${HTTPD_DIR=${PREFIX}"/apache"}
+TEMPLATE_DIR    = ${TEMPLATE_DIR=${HTTPD_DIR}"/htdocs/"${PACKAGE_NAME}}
+CGI_BIN_DIR     = ${CGI_BIN_DIR=${HTTPD_DIR}"/cgi-bin/zimlet"}
+CGI_BIN_PATH    = ${CGI_BIN_PATH="/cgi-bin/zimlet"}
+LIB_LISP_DIR    = ${LIB_LISP_DIR=${PREFIX}"/lib/lisp"}
+DIST_DIR        = ${DIST_DIR=${PACKAGE_NAME}"_TEMP"}
+EOF

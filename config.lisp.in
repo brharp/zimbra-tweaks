@@ -1,0 +1,7 @@
+;;; -*- Mode: Lisp; Syntax: Common-Lisp -*-
+;;; Copyright (c) 2010 M. Brent Harp
+
+(setf (logical-pathname-translations "config")
+      '(("etc;*.*.*"     "@sysconfdir@/*.*")
+        ("share;*.*.*"   "@pkgdatadir@/*.*")
+        ("**;*.*.*"      "@prefix@/**/*.*")))

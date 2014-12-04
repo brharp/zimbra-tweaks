@@ -1,0 +1,48 @@
+SHELL	        = /bin/sh
+PACKAGE_VERSION = 1.0
+CGISCRIPT       = zimlet.lisp
+TEMPLATES       = login.html add-calendar.html error.html prefs.html list-shares.html
+OBJECTS         = automount.fas agenda.fas
+
+default: compile
+
+makefiles Makefiles:
+	(echo "# Do not edit."; $(SHELL) makedefs) >makedefs.tmp
+	set +e; if cmp makedefs.tmp conf/makedefs.out; then rm makedefs.tmp; \
+	else mv makedefs.tmp conf/makedefs.out; fi >/dev/null 2>/dev/null
+	rm -f Makefile; (cat conf/makedefs.out Makefile.in) >Makefile
+
+compile: $(OBJECTS)
+
+%.fas: %.lisp config.lisp
+	ecl -eval "(and (compile-file \"$<\") (quit))"
+
+install: compile
+	mkdir -p $(TEMPLATE_DIR)
+	install -m 755 $(CGISCRIPT) $(DESTDIR)$(CGI_BIN_DIR)
+	install -m 644 $(TEMPLATES) $(DESTDIR)$(TEMPLATE_DIR)
+	install -m 644 $(OBJECTS)   $(DESTDIR)$(LIB_LISP_DIR)
+
+clean:
+	rm -f config.lisp
+	rm -f $(OBJECTS)
+
+dist:
+	mkdir -p $(DIST_DIR)
+	cp *.in $(DIST_DIR)
+	cp *.lisp $(DIST_DIR)
+	tar -czf $(PACKAGE_NAME).tgz $(DIST_DIR)
+	rm -rf $(DIST_DIR)
+
+edit = sed \
+	-e 's|@prefix[@]|$(PREFIX)|g' \
+	-e 's|@sysconfdir[@]|$(SYS_CONF_DIR)|g' \
+	-e 's|@pkgdatadir[@]|$(PKG_DATA_DIR)|g'
+
+config.lisp: Makefile
+	$(edit) $${srcdir}$@.in > $@
+
+config.lisp: config.lisp.in
+
+
+

@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/zimbra.css"/>
+  </head>
+  <body>
+    <img src="//www.uoguelph.ca/common/zimbra/AppBanner.png"
+         alt="Gryph Mail and Calendar"/>
+      <form action="/cgi-bin/zimlet/add-calendar" method="GET">
+        <table>
+          <tr><th colspan="2">Create New Calendar</th></tr>
+          <tr><td>
+              <table class="nested">
+                <tr>
+                  <td align="right"><label for="name">Name:</label></td>
+                  <td><input name="name" value="${name}" class="text"/></td></tr>
+                <tr>
+                  <td align="right"><label for="url">URL:</label></td>
+                  <td><input name="url" value="${url}" size="50" class="text"/></td></tr>
+                <tr>
+                  <td colspan="2" align="center">
+                    <input type="submit" name="action" value="OK"/></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </form>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/zimbra.css"/>
+  </head>
+  <body>
+    <img src="//www.uoguelph.ca/common/zimbra/AppBanner.png" 
+         alt="Gryph Mail and Calendar"/>
+    <form action="/cgi-bin/zimlet/login" method="GET">
+      <input name="redir" type="hidden" value="${redir}"/>
+      <input name="args"  type="hidden" value="${args}"/>
+      <table>
+        <tr>
+          <th colspan="2">Sign In</th>
+        </tr>
+        <tr>
+          <td>
+            <table class="nested">
+              <tr>
+                <td colspan="2">${error-message}</td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <label for="user">Name:</label>
+                </td>
+                <td>
+                  <input name="user" value="${user}"/>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <label for="pass">Password:</label>
+                </td>
+                <td>
+                  <input name="pass" type="password" value="${pass}"/>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center">
+                  <input type="submit" name="action" value="Sign In"/>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <hr/>
+
+  </body>
+</html>

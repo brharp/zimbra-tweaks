@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="zimbra.css"></link>
+  </head>
+  <body>
+    <img src="http://www.uoguelph.ca/common/zimbra/AppBanner.png"
+         alt="Gryph Mail and Calendar"/>
+    <form action="/cgi-bin/zimlet/add-calendar" method="GET">
+      <input type="hidden" name="n" value="Holidays"/>
+      <input type="hidden" name="u" value="https://mail.uoguelph.ca/home/%23holidays@uoguelph.ca/Calendar.ics"/>
+      <table>
+        <tr>
+          <th>Holidays</th>
+          <th style="text-align: right">
+            <input type="submit" value="Add Calendar to Gryph Mail"/>
+          </th>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table class="nested">
+              <tr>
+                <td>
+                  <iframe src="https://mail.uoguelph.ca/home/%23holidays@uoguelph.ca/Calendar.html"
+                          width="800" height="1024" style="border:0" frameborder="0"></iframe>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

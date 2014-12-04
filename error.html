@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Error</title>
+    <link rel="stylesheet" href="/zimbra.css"/>
+  </head>
+  <body>
+    <img src="//www.uoguelph.ca/common/zimbra/AppBanner.png"
+         alt="Gryph Mail and Calendar"/>
+    <table>
+      <tr><th>Error</th></tr>
+      <tr><td>
+          <table class="nested">
+            <tr>
+              <td>An error occured while handling your request. The error message
+                was:</td>
+            </tr>
+            <tr>
+              <td><textarea cols="72">${error}</textarea></td>
+            </tr>
+            <tr>
+              <td align="center">
+                <input type="button" value="Back"
+                       onclick="window.history.back()"/>
+              </td>
+            </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+  </body>
+</html>
